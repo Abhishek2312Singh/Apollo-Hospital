@@ -2,6 +2,7 @@ package com.apollohospital.Apollo.Hospital.entity;
 
 import com.apollohospital.Apollo.Hospital.enums.Symptoms;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity

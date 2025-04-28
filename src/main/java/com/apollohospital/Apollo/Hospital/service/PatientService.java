@@ -8,7 +8,7 @@ import java.util.List;
 public interface PatientService {
     public PatientOutputDto getDoctorById(Long id);
     public List<PatientOutputDto> getAllDoctor();
-    public PatientOutputDto addDoctor(PatientInputDto patientInputDto);
-    public PatientOutputDto updateDoctor(Long id, PatientInputDto patientInputDto);
+    public PatientOutputDto addPatient(PatientInputDto patientInputDto);
+    public PatientOutputDto updatePatient(Long id, PatientInputDto patientInputDto);
     public String removePatient(Long id);
 }
