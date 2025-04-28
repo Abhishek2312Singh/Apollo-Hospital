@@ -1,5 +1,6 @@
 package com.apollohospital.Apollo.Hospital.entity;
 
+import com.apollohospital.Apollo.Hospital.enums.Gender;
 import com.apollohospital.Apollo.Hospital.enums.Symptoms;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,5 +14,10 @@ public class Patient {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
     private Symptoms symptoms;
 }

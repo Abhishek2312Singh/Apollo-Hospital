@@ -1,5 +1,6 @@
 package com.apollohospital.Apollo.Hospital.dto;
 
+import com.apollohospital.Apollo.Hospital.enums.Gender;
 import com.apollohospital.Apollo.Hospital.enums.Symptoms;
 import lombok.Data;
 
@@ -7,5 +8,6 @@ import lombok.Data;
 public class PatientInputDto {
 
     private String name;
+    private Gender gender;
     private Symptoms symptoms;
 }

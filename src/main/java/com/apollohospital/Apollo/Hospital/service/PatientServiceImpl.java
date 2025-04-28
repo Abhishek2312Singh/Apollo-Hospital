@@ -35,6 +35,7 @@ public class PatientServiceImpl implements PatientService {
             patientOutputDto.setId(patient.getId());
             patientOutputDto.setName(patient.getName());
             patientOutputDto.setSymptoms(patient.getSymptoms());
+            patientOutputDto.setGender(patient.getGender());
 
             patientOutputDtoList.add(patientOutputDto);
         }
@@ -46,13 +47,14 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = new Patient();
         patient.setName(patientInputDto.getName());
         patient.setSymptoms(patientInputDto.getSymptoms());
-
+        patient.setGender(patientInputDto.getGender());
         patient = patientRepository.save(patient);
 
         PatientOutputDto patientOutputDto = new PatientOutputDto();
         patientOutputDto.setId(patient.getId());
         patientOutputDto.setName(patient.getName());
         patientOutputDto.setSymptoms(patient.getSymptoms());
+        patientOutputDto.setGender(patient.getGender());
 
         return patientOutputDto;
     }
@@ -62,6 +64,7 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = patientRepository.findById(id).orElse(null);
         patient.setName(patientInputDto.getName());
         patient.setSymptoms(patientInputDto.getSymptoms());
+        patient.setGender(patientInputDto.getGender());
 
         patient = patientRepository.save(patient);
 
@@ -69,6 +72,7 @@ public class PatientServiceImpl implements PatientService {
         patientOutputDto.setId(patient.getId());
         patientOutputDto.setName(patient.getName());
         patientOutputDto.setSymptoms(patient.getSymptoms());
+        patientOutputDto.setGender(patient.getGender());
 
         return patientOutputDto;
     }

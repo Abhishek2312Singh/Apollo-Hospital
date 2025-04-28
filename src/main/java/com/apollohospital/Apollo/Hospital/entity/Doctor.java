@@ -15,7 +15,11 @@ public class Doctor {
 
     private String name;
     private Double salary;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @Enumerated(EnumType.STRING)
     private Specialization specialization;
     private Long mobile;
 }
