@@ -48,6 +48,7 @@ public class PatientServiceImpl implements PatientService {
         patient.setName(patientInputDto.getName());
         patient.setSymptoms(patientInputDto.getSymptoms());
         patient.setGender(patientInputDto.getGender());
+
         patient = patientRepository.save(patient);
 
         PatientOutputDto patientOutputDto = new PatientOutputDto();
