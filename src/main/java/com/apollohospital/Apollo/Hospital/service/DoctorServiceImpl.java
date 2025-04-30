@@ -103,4 +103,22 @@ public class DoctorServiceImpl implements DoctorServices {
         doctorRepository.deleteById(id);
         return "Doctor Id : " + id + "\nDoctor name : " + name + "\nRemoved Successfully!!";
     }
+
+    @Override
+    public List<DoctorOutputDto> getDoctorBySalary(Double salary) {
+        List<DoctorOutputDto> doctorOutputDtoList = new ArrayList<>();
+        List<Doctor> doctors = doctorRepository.findBySalaryLessThan(salary);
+        for(Doctor doctor : doctors){
+            DoctorOutputDto doctorOutputDto = new DoctorOutputDto();
+            doctorOutputDto.setId(doctor.getId());
+            doctorOutputDto.setName((doctor.getName()));
+            doctorOutputDto.setGender(doctor.getGender());
+            doctorOutputDto.setSalary(doctor.getSalary());
+            doctorOutputDto.setSpecialization(doctor.getSpecialization());
+            doctorOutputDto.setMobile(doctor.getMobile());
+
+            doctorOutputDtoList.add(doctorOutputDto);
+        }
+        return doctorOutputDtoList;
+    }
 }

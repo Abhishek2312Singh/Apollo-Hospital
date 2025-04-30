@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/doctor")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class DoctorController {
     @Autowired
     DoctorServices doctorServices;
@@ -36,6 +37,10 @@ public class DoctorController {
     @DeleteMapping("/{id}")
     public String removeDoctor(@PathVariable Long id){
         return doctorServices.removeDoctor(id);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<DoctorOutputDto>> getDoctorBySalary(@RequestParam Double salary){
+        return new ResponseEntity<>(doctorServices.getDoctorBySalary(salary),HttpStatusCode.valueOf(200));
     }
 
 }

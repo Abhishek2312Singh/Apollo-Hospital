@@ -11,4 +11,5 @@ public interface DoctorServices {
     public DoctorOutputDto addDoctor(DoctorInputDto doctorInputDto);
     public DoctorOutputDto updateDoctor(Long id, DoctorInputDto doctorInputDto);
     public String removeDoctor(Long id);
+    public List<DoctorOutputDto> getDoctorBySalary(Double salary);
 }
