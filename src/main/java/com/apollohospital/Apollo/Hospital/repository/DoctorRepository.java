@@ -9,4 +9,6 @@ import java.util.List;
 public interface DoctorRepository extends JpaRepository<Doctor,Long> {
     public List<Doctor> findBySalaryLessThan(Double salary);
     public List<Doctor> findByGender(Gender gender);
+
+    public List<Doctor> findByNameLike(String name);
 }

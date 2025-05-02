@@ -141,4 +141,23 @@ public class DoctorServiceImpl implements DoctorServices {
         }
         return doctorOutputDtoList;
     }
+
+    @Override
+    public List<DoctorOutputDto> searchDoctorByName(String name) {
+        List<DoctorOutputDto> doctorOutputDtoList = new ArrayList<>();
+        List<Doctor> doctors = doctorRepository.findByNameLike("%"+name+"%");
+        for(Doctor doctor : doctors){
+            DoctorOutputDto doctorOutputDto = new DoctorOutputDto();
+
+            doctorOutputDto.setId(doctor.getId());
+            doctorOutputDto.setName((doctor.getName()));
+            doctorOutputDto.setGender(doctor.getGender());
+            doctorOutputDto.setSalary(doctor.getSalary());
+            doctorOutputDto.setSpecialization(doctor.getSpecialization());
+            doctorOutputDto.setMobile(doctor.getMobile());
+
+            doctorOutputDtoList.add(doctorOutputDto);
+        }
+        return doctorOutputDtoList;
+    }
 }

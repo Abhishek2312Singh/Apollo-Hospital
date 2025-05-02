@@ -14,4 +14,5 @@ public interface DoctorServices {
     public String removeDoctor(Long id);
     public List<DoctorOutputDto> getDoctorBySalary(Double salary);
     public List<DoctorOutputDto> getDoctorByGender(Gender gender);
+    public List<DoctorOutputDto> searchDoctorByName(String name);
 }

@@ -47,4 +47,8 @@ public class DoctorController {
     public ResponseEntity<List<DoctorOutputDto>> getDoctorByGender(@RequestParam Gender gender){
         return new ResponseEntity<>(doctorServices.getDoctorByGender(gender),HttpStatusCode.valueOf(200));
     }
+    @GetMapping("/searchByName")
+    public ResponseEntity<List<DoctorOutputDto>> searchByName(@RequestParam String name){
+        return new ResponseEntity<>(doctorServices.searchDoctorByName(name),HttpStatusCode.valueOf(200));
+    }
 }
