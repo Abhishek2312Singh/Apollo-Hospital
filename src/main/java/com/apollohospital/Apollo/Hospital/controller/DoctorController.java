@@ -2,6 +2,7 @@ package com.apollohospital.Apollo.Hospital.controller;
 
 import com.apollohospital.Apollo.Hospital.dto.DoctorInputDto;
 import com.apollohospital.Apollo.Hospital.dto.DoctorOutputDto;
+import com.apollohospital.Apollo.Hospital.enums.Gender;
 import com.apollohospital.Apollo.Hospital.service.DoctorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -42,5 +43,8 @@ public class DoctorController {
     public ResponseEntity<List<DoctorOutputDto>> getDoctorBySalary(@RequestParam Double salary){
         return new ResponseEntity<>(doctorServices.getDoctorBySalary(salary),HttpStatusCode.valueOf(200));
     }
-
+    @GetMapping("/searchByGender")
+    public ResponseEntity<List<DoctorOutputDto>> getDoctorByGender(@RequestParam Gender gender){
+        return new ResponseEntity<>(doctorServices.getDoctorByGender(gender),HttpStatusCode.valueOf(200));
+    }
 }

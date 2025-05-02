@@ -3,6 +3,7 @@ package com.apollohospital.Apollo.Hospital.service;
 import com.apollohospital.Apollo.Hospital.dto.DoctorInputDto;
 import com.apollohospital.Apollo.Hospital.dto.DoctorOutputDto;
 import com.apollohospital.Apollo.Hospital.entity.Doctor;
+import com.apollohospital.Apollo.Hospital.enums.Gender;
 import com.apollohospital.Apollo.Hospital.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,6 +111,25 @@ public class DoctorServiceImpl implements DoctorServices {
         List<Doctor> doctors = doctorRepository.findBySalaryLessThan(salary);
         for(Doctor doctor : doctors){
             DoctorOutputDto doctorOutputDto = new DoctorOutputDto();
+            doctorOutputDto.setId(doctor.getId());
+            doctorOutputDto.setName((doctor.getName()));
+            doctorOutputDto.setGender(doctor.getGender());
+            doctorOutputDto.setSalary(doctor.getSalary());
+            doctorOutputDto.setSpecialization(doctor.getSpecialization());
+            doctorOutputDto.setMobile(doctor.getMobile());
+
+            doctorOutputDtoList.add(doctorOutputDto);
+        }
+        return doctorOutputDtoList;
+    }
+
+    @Override
+    public List<DoctorOutputDto> getDoctorByGender(Gender gender) {
+        List<DoctorOutputDto> doctorOutputDtoList = new ArrayList<>();
+        List<Doctor> doctorList = doctorRepository.findByGender(gender);
+        for(Doctor doctor : doctorList){
+            DoctorOutputDto doctorOutputDto = new DoctorOutputDto();
+
             doctorOutputDto.setId(doctor.getId());
             doctorOutputDto.setName((doctor.getName()));
             doctorOutputDto.setGender(doctor.getGender());
