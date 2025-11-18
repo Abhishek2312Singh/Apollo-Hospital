@@ -145,7 +145,7 @@ public class DoctorServiceImpl implements DoctorServices {
     @Override
     public List<DoctorOutputDto> searchDoctorByName(String name) {
         List<DoctorOutputDto> doctorOutputDtoList = new ArrayList<>();
-        List<Doctor> doctors = doctorRepository.findByNameLike("%"+name+"%");
+        List<Doctor> doctors = doctorRepository.findByNameLike("%"+name+"% ");
         for(Doctor doctor : doctors){
             DoctorOutputDto doctorOutputDto = new DoctorOutputDto();
 

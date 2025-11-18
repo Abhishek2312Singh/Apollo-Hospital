@@ -5,6 +5,8 @@ import com.apollohospital.Apollo.Hospital.enums.Specialization;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "Doctor")
@@ -22,4 +24,7 @@ public class Doctor {
     @Enumerated(EnumType.STRING)
     private Specialization specialization;
     private Long mobile;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointments;
 }

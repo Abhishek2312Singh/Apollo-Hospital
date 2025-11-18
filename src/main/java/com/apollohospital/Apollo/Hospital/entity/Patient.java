@@ -5,6 +5,8 @@ import com.apollohospital.Apollo.Hospital.enums.Symptoms;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "patient")
@@ -20,4 +22,11 @@ public class Patient {
 
     @Enumerated(EnumType.STRING)
     private Symptoms symptoms;
+
+    @OneToOne
+    @JoinColumn(name = "patient_insurance_id") //owning side
+    private Insurance insurance;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
 }
